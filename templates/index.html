@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars Scrape</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p>FACTS!</p>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+    
+    <h2>Latest Mars News:</h2>
+    <h4>{{martian.news_title}}</h4>
+    <p>{{martian.news_p}}</p>
+  
+    <div class="row">
+      <div class="col-md-8">
+        <h3>Featured Mars Image</h3>
+        <img src="{{martian.featured_image_url}}" class ="img-responsive" alt="Featured Image">
+      </div>
+
+      <div class="col-md-4">
+        <h3>Mars Facts</h3>
+        <p>{{martian.MARS | safe}}</p> 
+      </div>
+    </div> 
+
+  <div class="col-md-12">
+    <div class="row">
+      <h3 class="text-center"><u>Mars Hemispheres</u></h3>
+        {% for hemisphere in martian.hemisphere_image_urls %}
+        <div class="col-md-6">
+          <div class="thumbnail">
+            <img src="{{hemisphere.img_url}}" style="width:40%" height="auto">
+              <div class="caption">
+                <h1><b>{{hemisphere.title}}Enhanced</b></h1>
+              </div>
+          </div>  
+        </div> 
+        {% endfor %}
+    </div>
+  </div> 
+  </div>
+</body>
+<footer>
+  <center>
+      Copyright &copy; 2020<i> Created by Ariel</i>
+      <br>
+  <a href="index.html">Return to Home Page</a>
+  </center>
+</footer>
+</html>
